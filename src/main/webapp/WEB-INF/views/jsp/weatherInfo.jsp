@@ -11,7 +11,6 @@
 <spring:url value="/resources/core/css/weatherInfo.css" var="coreCss" />
 <spring:url value="/resources/core/css/bootstrap.min.css" var="bootstrapCss" />
 <spring:url value="/resources/core/js/jquery.1.10.2.min.js" var="jqueryJs" />
-<spring:url value="/resources/core/js/weatherInfo.js" var="weatherInfo" />
 
 <link href="${bootstrapCss}" rel="stylesheet" />
 <link href="${coreCss}" rel="stylesheet" />
@@ -102,7 +101,7 @@
     }
 
     function display(data) {
-        var json = "<h4>Weather Information</h4><pre>"
+        var json = "<h4>Current Weather Information</h4><pre>"
                 + JSON.stringify(data, null, 4) + "</pre>";
         $('#feedback').html(json);
     }
