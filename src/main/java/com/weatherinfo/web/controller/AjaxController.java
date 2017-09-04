@@ -3,6 +3,7 @@ package com.weatherinfo.web.controller;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,8 @@ import com.weatherinfo.web.model.SearchCriteria;
 
 @RestController
 public class AjaxController {
+	
+	 private static Logger LOGGER = Logger.getLogger(AjaxController.class);
 
 	@Autowired
 	private WUndergroundDelegate wUndergroundDelegate;
@@ -33,6 +36,7 @@ public class AjaxController {
 			if(null == response || response.isEmpty()){
 				result.setCode("500");
 				result.setMsg("Invalid City Name. Not found !!");
+				LOGGER.error("Invalid City Name: " + search.getCities());
 			}
 
 			else if (response.size() > 0) {
@@ -47,6 +51,7 @@ public class AjaxController {
 		} else {
 			result.setCode("400");
 			result.setMsg("Search criteria is empty!!");
+			LOGGER.warn("Empty search criteria.");
 		}
 
 		return result;

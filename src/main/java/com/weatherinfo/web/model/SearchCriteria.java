@@ -7,7 +7,7 @@ public class SearchCriteria {
 	public String getCities() {
 		return cities;
 	}
-
+	
 	public void setCities(String cities) {
 		this.cities = cities;
 	}
